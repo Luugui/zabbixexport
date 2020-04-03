@@ -20,7 +20,7 @@ f = Figlet(font='slant')
 print(f.renderText("Zabbix Export All Hosts"))
 
 
-# CONECTANDO AO ZABBIX TAESA
+# CONECTANDO AO ZABBIX
 zapi = ZabbixAPI(args['server'])
 zapi.login(args['user'],args['password'])
 print("--> Conectado com sucesso!\n")
