@@ -20,8 +20,12 @@ f = Figlet(font='slant')
 print(f.renderText("Zabbix Export All Hosts"))
 
 
-# CONECTANDO AO ZABBIX TAESA
+# CONECTANDO AO ZABBIX
 zapi = ZabbixAPI(args['server'])
+if "https" in args['server']:
+    import requests
+    requests.packages.urllib3.disable_warnings()
+    zapi.session.verify = False
 zapi.login(args['user'],args['password'])
 print("--> Conectado com sucesso!\n")
 
